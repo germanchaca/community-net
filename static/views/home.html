@@ -1,0 +1,12 @@
+ <div layout="row">
+	<div flex="30">
+	    <md-input-container class="md-block" flex-gt-sm>
+	        <label>Choose a method</label>
+	        <md-select ng-model="methodSelected">
+	          <md-option ng-repeat="method in methods" value="{{method.id}}">
+	            {{method.name}}
+	          </md-option>
+	        </md-select>
+	    </md-input-container>
+	</div>
+</div>
