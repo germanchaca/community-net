@@ -1,11 +1,13 @@
-from server import app
-
 from flask import make_response, jsonify, request,Response
+
+from server import app
+import server.clustering as cls
+import json
 
 # RESTful API
 @app.route('/')
 def index():
-    return "Flask Webapp"
+    return "Flask webapp"
     # return app.send_static_file('index.html')
     # return make_response(open(os.path.join(DIR, 'index.html')).read())
 
@@ -13,11 +15,11 @@ def index():
 @app.route('/clustering')
 def detect():
     method= request.args.get('method', '')
+    year=1920
 
     try:
-        method_selected=method;
+        data=cls.set_method(method,year)
+        # data="clustering"
     except ValueError:
-        method=""
-
-    val = {"method":method_selected}
-    return jsonify(val)
+        data="error"
+    return json.dumps(data)
