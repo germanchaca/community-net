@@ -8,7 +8,7 @@ angular.module('app', [
   'ngRoute',
   'ngSanitize',
   'app.services',
-  // 'app.directives',
+  'app.directives',
   // // 'app.filters',
   'app.controller.home',
   ])

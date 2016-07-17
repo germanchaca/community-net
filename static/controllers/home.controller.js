@@ -23,7 +23,10 @@ function ($scope, $location, $http,methodService) {
       })
       .then(function (data){
       	console.log(data)
-		})
+	  	$scope.links=data.links;
+	  	$scope.nodes=data.nodes
+	  	$scope.cluster=data.clustering;
+	  })
   	})
 
 }])

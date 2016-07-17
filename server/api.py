@@ -15,7 +15,7 @@ def index():
 @app.route('/clustering')
 def detect():
     method= request.args.get('method', '')
-    year=1920
+    year=1860
 
     try:
         data=cls.set_method(method,year)
