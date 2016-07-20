@@ -8,7 +8,7 @@ from sklearn.cluster import KMeans
 #raw_data =pd.read_csv('../data/trade_data.csv', sep=',', error_bad_lines=False, index_col=False, dtype='unicode')
 raw_data = pd.read_csv('data/trade_data.csv').dropna(subset = ['Flow____0'])
 
-def spectral_clustering(graph, dim_spec = 5, n_cluster = 13):
+def spectral_clustering(graph, dim_spec, n_cluster):
     """
     return the prediction of kmeans model of the spectral clustering
     """
@@ -27,9 +27,11 @@ def spectral_clustering(graph, dim_spec = 5, n_cluster = 13):
         
     return dict_predict
 
-def set_method(method,year):
+def set_method(method,year,cluster):
 	#GTC_object = Graph_GT(year = year, raw_data = raw_data)
 	#networkx graph object
+	# year=int(year)
+	# cluster=int(cluster)
 	df = raw_data.loc[raw_data['Yr']==year]
 	list_trade = df.iloc[:,[2,5,7,3,4,6,9]].values
 	links=[]
@@ -38,7 +40,8 @@ def set_method(method,year):
 
 	for row in list_trade:
 		#print type(row[2])
-		if (row[0]!="World") * (row[1]!="World")==1:
+		# if (row[0]!="World") * (row[1]!="World") * (row[4]!="Geographical Area")*(row[6]!="Geographical Area")==1:
+		if (row[3]=="Country")*(row[6]=="Country")==1:
 			links.append({
 				"source":row[0],
 				"target":row[1],
@@ -48,27 +51,26 @@ def set_method(method,year):
 			# nodes.append(row[1])
 			nodes.append({
 				"id":row[0],
-				"type":row[3],
-				"continent":row[4]
+				"continent":row[4],
+				"type":row[3]
 			})
 			nodes.append({
 				"id":row[1],
-				"type":row[5],
-				"continent":row[6]
+				"continent":row[5],
+				"type":row[6]
 				})
 			###### construction of nx.graph
 			G.add_edge(row[0],row[1])
 			
-
 	nodes_list=[node["id"] for node in nodes]
 	nodes_list=list(set(nodes_list))
 	G.add_nodes_from(nodes_list)
 	nodes=[dict(t) for t in set([tuple(d.items()) for d in nodes])]
 ################################ spectral clustering ##################
-	dict_predict = spectral_clustering(graph = G)
+	dict_predict = spectral_clustering(graph = G,dim_spec = 1,n_cluster=cluster)
 
 	for node in nodes:
-		node["community"]=dict_predict[node["id"]	]
+		node["community"]=dict_predict[node["id"]]
 #######################################################################
 
 #######################################################################

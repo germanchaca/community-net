@@ -15,10 +15,11 @@ def index():
 @app.route('/clustering')
 def detect():
     method= request.args.get('method', '')
-    year=1860
+    year= int(request.args.get('year', ''))
+    cluster= int(request.args.get('cluster', ''))
 
     try:
-        data=cls.set_method(method,year)
+        data=cls.set_method(method,year,cluster)
         # data="clustering"
     except ValueError:
         data="error"

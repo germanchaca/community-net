@@ -16,13 +16,21 @@ function ($scope, $location, $http,methodService) {
 	    }
   	]
   	$scope.methodSelected=$scope.methods[0].id;
+
+  	$scope.years=d3.range(1787,2014)
+  	$scope.yearSelected=1920
+
+  	$scope.clusters=d3.range(2,20)
+  	$scope.clusterSelected=2
   	
-  	$scope.$watch("methodSelected",function(newVal){
+  	$scope.$watchCollection("[methodSelected,yearSelected,clusterSelected]",function(newVal){
 		methodService.getClustering({
-      	method: newVal,
-      })
-      .then(function (data){
-      	console.log(data)
+      	method: newVal[0],
+      	year:newVal[1],
+      	cluster:newVal[2]
+    })
+    .then(function (data){
+    	console.log(data)
 	  	$scope.links=data.links;
 	  	$scope.nodes=data.nodes
 	  	$scope.cluster=data.clustering;

@@ -27,16 +27,19 @@ angular.module('app.directives.network', [])
                 .attr("height", height + margin.top + margin.bottom)
                 .attr("width",width + margin.left + margin.right)
                 .append("g")
+                .attr("class","canvas")
                 .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
     
     var color = d3.scaleOrdinal(d3.schemeCategory20);
-    console.log(color(1))
+    
     var simulation = d3.forceSimulation()
         .force("link", d3.forceLink().id(function(d) { return d.id; }))
         .force("charge", d3.forceManyBody())
         .force("center", d3.forceCenter(width / 2, height / 2));
 
     function draw(data){
+      d3.select(".canvas").selectAll("*").remove();
+
       var graph_links=data[0],
           graph_nodes=data[1],
           cluster=data[2]
