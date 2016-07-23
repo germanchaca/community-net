@@ -1,0 +1,402 @@
+RICname,COW_code,iso3n
+Aden,681,NA
+Afghanistan,700,4
+Alaska,3,NA
+Albania,339,8
+Aleppo,6525,NA
+Algeria,615,12
+Ancona,3271,NA
+Andaman and Nicobar Is.,7501,NA
+Andorra,232,20
+Angola,540,24
+Annam,8152,NA
+Antigua & Barbuda,58,28
+Argentina,160,32
+Aruba,1069,NA
+Ascension I.,4070,NA
+Assam,7572,NA
+Australia,900,36
+Austria,305,40
+Austria-Hungary,300,NA
+Azores (Western Isles),400,NA
+Baden,267,NA
+Bahamas,31,44
+Bahrain,692,48
+Bali,8541,NA
+Baluchistan (Kalat),7588,NA
+Banjermassin (Dutch Borneo),8543,NA
+Barbados,53,52
+Bavaria,245,NA
+Belgium,211,56
+Belize (British Honduras),80,84
+Benin (Dahomey),434,204
+Berbice,1114,NA
+Bermuda,30,NA
+Bokhara,7020,NA
+Bolivia,145,68
+Bonaire,1066,NA
+Bosnia,3461,NA
+Bosnia-Herzegovina,346,70
+Botswana (Bechuanaland),571,72
+Brazil,140,76
+Bremen,246,NA
+British Cameroons,472,NA
+British Columbia,1027,NA
+British Kaffraria,5614,NA
+British Somaliland (Somaliland Republic),521,NA
+British Virgin Is.,1061,NA
+Brunei,835,96
+Brunswick,244,NA
+Buenos Aires,1161,NA
+Bulgaria,355,100
+Burma (Myanmar),775,104
+California (Great Bear Republic),1014,NA
+Cameroun (French Cameroons),471,120
+Canada,20,124
+Canary Is.,410,NA
+Cape Breton I.,1021,NA
+Cape Colony,561,NA
+Cape Verde,402,132
+Caroline Is.,9810,NA
+Cayman Is.,1033,NA
+Ceuta,6062,NA
+Chafarinas,6063,NA
+Chile,155,152
+China (People's Republic of China),710,156
+Christmas I.,9001,NA
+Clipperton I.,9610,NA
+Cochin China,8151,NA
+Colombia (Gran Colombia),100,170
+Comoros,581,174
+Congo (Brazzaville) (French Congo) (Middle Congo),484,178
+Corfu,3351,NA
+Coromandel Coast Posts,7503,NA
+Costa Rica,94,188
+Cracow,2292,NA
+Crete,351,NA
+Croatia,344,191
+Crozet Is.,9974,NA
+Cuba,40,192
+Curacao,1065,NA
+Cyprus,352,196
+Cyrenaica,6202,NA
+Czechoslovakia,315,200
+Danzig,291,NA
+Dardanelles-Istanbul,6405,NA
+Demerara and Essequibo,1113,NA
+Denmark,390,208
+Djibouti (Afar and Issas) (French Somaliland),522,262
+Dodecanese Is. (Aegean Is.),3353,NA
+Dominica,54,212
+Dominican Republic (Santo Domingo),42,214
+Dutch Posts (Gold Coast),4535,NA
+Dutch Windward Is.,1074,NA
+Eastern Rumelia,3551,NA
+Ecuador,130,218
+Egypt/United Arab Republic,651,818
+El Salvador,92,222
+Eritrea,531,232
+Estonia,366,233
+Ethiopia (Abyssinia),530,231
+Faeroe Is.,11,NA
+Falkland Is.,1163,NA
+Federated Malay States,821,NA
+Fernando Po (Bioko),413,NA
+Fiji,950,242
+Finland,375,246
+Fiume,3343,NA
+France,220,250
+France (foreign produce),220,250
+France (French produce),220,250
+Frankfurt,247,NA
+French Equatorial Africa,480,NA
+French Guyana,120,NA
+French India,751,NA
+French Indochina,810,NA
+French West Africa,430,NA
+Gabon,481,266
+Gambia,420,270
+Germany,255,276
+Germany (Zollverein),255Z,NA
+Ghana (Gold Coast),452,288
+Gibraltar,231,NA
+Gilbert and Ellice Is.,945,NA
+Goree,4338,NA
+Greece,350,300
+Greenland,10,NA
+Grenada,55,308
+Guadeloupe,65,NA
+Guam,985,NA
+Guatemala,90,320
+Guinea (French Guinea) (Rivieres du Sud),438,324
+Guinea-Bissau (Portuguese Guinea),404,624
+Guyana (Br. Guiana),110,328
+Haiti,41,332
+Hamburg,248,NA
+Hanover,240,NA
+Hawaii,4,NA
+Hejaz Sultanate,671,NA
+Heligoland,2249,NA
+Holstein,2248,NA
+Honduras,91,340
+Hong Kong,720,NA
+Hungary,310,348
+Iceland,395,352
+India,750,356
+India (domestic produce),750,356
+India (foreign produce),750,356
+Indonesia (Dutch East Indies),850,360
+Ionian Is.,3349,NA
+Iran (Persia),630,364
+Iraq (Mesopotamia),645,368
+Ireland,205,372
+Israel,666,376
+Italian Somaliland,5200,NA
+Italy,325,380
+Ivory Coast,437,384
+Jamaica,51,388
+Japan,740,392
+Johore,8221,NA
+Jordan (Transjordan),663,400
+Kamerun,470,NA
+Kampuchea (Cambodia),811,116
+Kedah,8222,NA
+Kelantan,8223,NA
+Kenya (British East Africa Protectorate),501,404
+Khiva,7030,NA
+Kiauchau,7220,NA
+Kingdom of Sardinia,325S,NA
+Kiribati,946,296
+Kokand,7010,NA
+Korea (Chosen),730,NA
+Kuwait,690,414
+Kwanchowan,7110,NA
+Kwangtung Territory (Leased),7104,NA
+Kyrgyzstan,703,417
+Labuan I.,8231,NA
+Lagos,4781,NA
+Latvia,367,428
+Lauenburg,2246,NA
+Lebanon,660,422
+Leeward Is.,1063,NA
+Lesotho (Basutoland),570,426
+Liberia,450,430
+Libya (Tripolitania Cyrenaica Fezzan),620,434
+Lithuania,368,440
+Lombok,8542,NA
+Lubeck,276,NA
+Lucca,336,NA
+Luxemburg,212,442
+Macao,721,NA
+Madeira Isles,401,NA
+Malacca,8271,NA
+Malagasy Republic (Madagascar),580,450
+Malawi (Nyasaland),553,454
+Malaysia (Malaya),820,458
+Malden I.,9462,NA
+Maldive Islands,781,462
+Mali (French Sudan) (Upper Senegal and Niger),432,466
+Malta,338,470
+Manchuria,7111,NA
+Mariana Is.,9820,NA
+Martinique,66,NA
+Mauritius,590,480
+Mayotte,5812,NA
+Mecklenburg Schwerin,280,NA
+Melilla,6064,NA
+Memel,3363,NA
+Mexico,70,484
+Milan,3253,NA
+Modena,332,NA
+Moldavia,3361,NA
+Monaco,221,492
+Mongolia,712,496
+Montenegro,348,NA
+Montserrat,59,NA
+Moresnet,2111,NA
+Morocco,600,504
+Mozambique,541,508
+Natal,562,NA
+Nauru,970,520
+Negri Sembilan,8210,NA
+Netherlands,210,528
+Netherlands Antilles,68,NA
+Nevis,1076,NA
+New Brunswick,1023,NA
+New Caledonia,930,NA
+New Caledonia and Dependencies,930,NA
+New Guinea (German New Guinea) (Kaiser Wilhelmsland),912,NA
+New Hebrides,935,548
+New South Wales,901,NA
+New Zealand,920,554
+Newfoundland,21,NA
+Nicaragua,93,558
+Niger,436,562
+Nigeria,475,566
+Niue I.,9253,NA
+Northern Nigeria,4784,NA
+Norway,385,578
+Nossi Be,5801,NA
+Nova Scotia,1022,NA
+Obock,5222,NA
+Oldenburg,257,NA
+Oman,698,512
+Ontario (Upper Canada),1026,NA
+Orange Free State (Orange River Colony),564,NA
+Oregon Country,1016,NA
+Pahang,8203,NA
+Palembang,8537,NA
+Palestine,665,NA
+Panama,95,591
+Panama Canal Zone,96,NA
+Papal States,327,336
+Papua,911,NA
+Papua New Guinea,910,598
+Paraguay,150,600
+Parma,335,NA
+Penang,8272,NA
+Perak,8201,NA
+Perim I.,6802,NA
+Perlis,8224,NA
+Peru,135,604
+Philippines,840,608
+Poland,290,616
+Porto Novo,4348,NA
+Portugal,235,620
+Portuguese India (incl. Goa Diu Daman),752,NA
+Portuguese Timor,860,626
+Prince Edward Is.,1024,NA
+Prussia,255P,NA
+Puerto Rico,6,NA
+Quebec (Lower Canada),1025,NA
+Queensland,905,NA
+Republic of China (Taiwan) (Formosa),713,158
+Republic of St. Mark,3261,NA
+Reunion,585,NA
+Rhineland,2556,NA
+Riau,8544,NA
+Romania,360,642
+Rotterdam,360,642
+Rupert's Land,1019,NA
+Russia/USSR,365,643
+Saar,256,NA
+Sabah (North Borneo),823,NA
+Sambas,8525,NA
+Samoa,9900,NA
+Samos,3504,NA
+Sao Tome-Principe,403,678
+Sarawak,824,NA
+Saxe Altenburg,262,NA
+Saxe Coburg,264,NA
+Saxe Meiningen,266,NA
+Saxe Weimar,261,NA
+Saxony,269,NA
+Schleswig,2247,NA
+Selangor,8202,NA
+Senegal,433,686
+Seychelles,591,690
+Sicily,3291,NA
+Sierra Leone,451,694
+Sind,7693,NA
+Singapore,830,702
+Sint Eustatius,1068,NA
+Slovenia,349,705
+Society Is.,9601,NA
+Socotra I.,6800,NA
+Solomon Islands,940,90
+Somalia,520,706
+South Africa,560,710
+South Africa (domestic produce),560,710
+South Africa (foreign produce),560,710
+South Australia,903,NA
+South West Africa (German West Africa) (Namibia),565,516
+Southern Nigeria,4783,NA
+Southern Sakhalin I.,7351,NA
+Spain,230,724
+Spain (foreign flag),231,NA
+Spain (Spanish flag),230,724
+Spanish West Africa,610,NA
+Sri Lanka (Ceylon),780,144
+St. Barthelemy,1064,NA
+St. Helena,4050,NA
+St. Kitts,1075,NA
+St. Kitts-Nevis,60,659
+St. Lucia,56,662
+St. Marie de Madagascar,5803,NA
+St. Pierre and Miquelon,1029,NA
+St. Vincent and the Grenadines,57,670
+Straits Settlements,827,NA
+Sudan (Anglo-Egyptian),625,736
+Suez Canal Zone,6514,NA
+Sulu Sultanate,8401,NA
+Surinam,115,740
+Svalbard Is.,3386,NA
+Swaziland,572,748
+Sweden,380,752
+Switzerland,225,756
+Syria,652,760
+Tadjoura,5221,NA
+Tahiti,9606,NA
+Tanzania (Tanganyika) (German East Africa),510,834
+Tasmania,906,NA
+Tetuan,6030,NA
+Texas,7,NA
+Thailand (Siam),800,764
+Tobago,1049,NA
+Togo (French Togoland),461,768
+Tonga,955,776
+Tonkin,8153,NA
+Transvaal,563,NA
+Trengganu,8225,NA
+Trieste,326,NA
+Trinidad and Tobago,52,780
+Tripolitania,6203,NA
+Tunisia,616,788
+Turkey,640,792
+Turks and Caicos Is.,1032,NA
+Tuscany,337,NA
+Two Sicilies,329,NA
+Uganda,500,800
+United Arab Emirates (Trucail Oman),696,784
+United Kingdom,200,826
+United States of America,2,840
+United States of America (domestic produce),2,840
+United States of America (foreign produce),2,840
+Uruguay,165,858
+Uzbekistan,704,860
+Vancouver,1028,NA
+Venezuela,101,862
+Viceroyalty of La Plata,1160,NA
+Victoria,904,NA
+Vietnam,815,NA
+Virgin Islands,5,NA
+Wallachia,3362,NA
+Wallis and Futuna Is.,9321,NA
+Walvis Bay,5651,NA
+Weihaiwei,7105,NA
+West Irian (Dutch New Guinea),851,NA
+Western Anatolia,6402,NA
+Western Australia,902,NA
+Western Samoa,990,882
+Windward Is.,1055,NA
+Yugoslavia/Serbia,345,NA
+Zaire (Kinshasa) (Belgian Congo),490,180
+Zambia (Northern Rhodesia),551,894
+Zanzibar,511,NA
+Zimbabwe (Rhodesia) (Southern Rhodesia),552,716
+Abu Dhabi,6961,NA
+Ajman,6965,NA
+Bhutan,760,64
+Ceuta & Melilla,,NA
+Dubai,6962,NA
+French Polynesia,960,NA
+Fujairah,6968,NA
+Nepal,790,524
+Yemen People's Republic,680,720
+Qatar,694,634
+Ras al Khaimah,6967,NA
+Rwanda-Urundi,515,NA
+Saudi Arabia (Nejd Wahabbid Empire),670,682
+Sharjah,6963,NA
+Sikkim,761,NA
+Equatorial Guinea (Spanish Guinea),411,226
