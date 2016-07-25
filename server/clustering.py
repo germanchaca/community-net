@@ -6,7 +6,7 @@ from sklearn.cluster import KMeans
 
 # data importing
 #raw_data =pd.read_csv('../data/trade_data.csv', sep=',', error_bad_lines=False, index_col=False, dtype='unicode')
-raw_data = pd.read_csv('data/trade_data.csv').dropna(subset = ['Flow____0'])
+raw_data = pd.read_csv('data/clean_data.csv').dropna(subset = ['Flow'])
 
 def spectral_clustering(graph, dim_spec, n_cluster):
     """
@@ -33,7 +33,7 @@ def set_method(method,year,cluster):
 	# year=int(year)
 	# cluster=int(cluster)
 	df = raw_data.loc[raw_data['Yr']==year]
-	list_trade = df.iloc[:,[2,5,7,3,4,6,9]].values
+	list_trade = df.values
 	links=[]
 	G = nx.Graph()
 	nodes = []
@@ -41,26 +41,26 @@ def set_method(method,year,cluster):
 	for row in list_trade:
 		#print type(row[2])
 		# if (row[0]!="World") * (row[1]!="World") * (row[4]!="Geographical Area")*(row[6]!="Geographical Area")==1:
-		if (row[3]=="Country")*(row[6]=="Country")==1:
+		if (row[5]=="Country")*(row[7]=="Country")==1:
 			links.append({
-				"source":row[0],
-				"target":row[1],
-				"flow":row[2]
+				"source":row[1],
+				"target":row[2],
+				"flow":row[3]
 				})
 			# nodes.append(row[0])
 			# nodes.append(row[1])
 			nodes.append({
-				"id":row[0],
+				"id":row[1],
 				"continent":row[4],
-				"type":row[3]
+				"type":row[5]
 			})
 			nodes.append({
-				"id":row[1],
-				"continent":row[5],
-				"type":row[6]
+				"id":row[2],
+				"continent":row[6],
+				"type":row[7]
 				})
 			###### construction of nx.graph
-			G.add_edge(row[0],row[1])
+			G.add_edge(row[1],row[2])
 			
 	nodes_list=[node["id"] for node in nodes]
 	nodes_list=list(set(nodes_list))
