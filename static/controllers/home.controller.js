@@ -6,16 +6,20 @@ angular.module('app.controller.home', [])
 .controller('home', [ '$scope', '$location', '$http','methodService',
 function ($scope, $location, $http,methodService) {
 	$scope.methods=[
-	    {
-	      name:"Hierachical Clustering",
-	      id:"hierachical"
-	    },
+	    // {
+	    //   name:"Hierachical Clustering",
+	    //   id:"hierachical"
+	    // },
 	    {
 	      name:"Spectral Clustering",
 	      id:"spectral"
-	    }
+	    },
+      {
+        name:"Louvain",
+        id:"louvain"
+      }
   	]
-  	$scope.methodSelected=$scope.methods[0].id;
+  	$scope.methodSelected=$scope.methods[1].id;
 
   	$scope.years=d3.range(1787,2014)
   	$scope.yearSelected=1920
