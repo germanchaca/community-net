@@ -7,3 +7,9 @@
   stroke: #fff;
   stroke-width: 1.5px;
 }
+
+#network {
+      /*position: absolute;*/
+      height: 500px;
+      /*width:500px;*/
+    }

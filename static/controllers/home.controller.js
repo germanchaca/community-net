@@ -34,11 +34,9 @@ function ($scope, $location, $http,methodService) {
       	cluster:newVal[2]
     })
     .then(function (data){
-    	console.log(data)
-	  	$scope.links=data.links;
-	  	$scope.nodes=data.nodes
-	  	$scope.cluster=data.clustering;
+      console.log(data)
+    	$scope.graph=data;
 	  })
-  	})
+  })
 
 }])

@@ -5,7 +5,9 @@ angular.module('app.directives.network', [])
   // isolate scope
   return {
     scope: { 
-      'graph': '=',
+      'links': '=',
+      'nodes': '=',
+      'cluster': '=',
     },
     restrict: 'E',
     template: '<div id="network"></div>',
@@ -21,7 +23,6 @@ angular.module('app.directives.network', [])
     var margin = {top: 20, right: 20, bottom: 20, left: 20 },
             width = 960-margin.left-margin.right,
             height=600
-
     var svg = d3.select("#network").append("svg")
                 .attr("height", height + margin.top + margin.bottom)
                 .attr("width",width + margin.left + margin.right)
@@ -37,7 +38,6 @@ angular.module('app.directives.network', [])
         .force("center", d3.forceCenter(width / 2, height / 2));
 
     function draw(graph){
-
       d3.select(".canvas").selectAll("*").remove();
 
       var link = svg.append("g")
