@@ -186,13 +186,13 @@ def set_method(method,year,cluster):
 	elif method=="louvain":
 		dict_predict = louvain_partition(graph=graph)
 #######################################################################
-	pos = nx.fruchterman_reingold_layout(graph)
+	# pos = nx.fruchterman_reingold_layout(graph)
 
 	for node in json_graph["nodes"]:
 	    node["community"]=dict_predict[node["id"]]
-	    node["x"]= pos[node["id"]][0]
-	    node["y"]= pos[node["id"]][1]
-	    node["size"]= 1
+	    # node["x"]= pos[node["id"]][0]
+	    # node["y"]= pos[node["id"]][1]
+	    # node["size"]= 1
 
 	for i in range(len(json_graph["edges"])):
 		json_graph["edges"][i]["id"]="e"+str(i)

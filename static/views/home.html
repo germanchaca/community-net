@@ -1,38 +1,52 @@
- <div layout="row">
-	<div flex="40">
-	    <md-input-container class="md-block" flex-gt-sm>
-	        <label>Choose a method</label>
-	        <md-select ng-model="methodSelected">
-	          <md-option ng-repeat="method in methods" value="{{method.id}}">
-	            {{method.name}}
-	          </md-option>
-	        </md-select>
-	    </md-input-container>
+<div layout="row">
+	<div flex=70>
+		<network
+		graph="graph"
+		layout-method="layoutSelected"
+		></network>
 	</div>
-	<div flex="30">
-	    <md-input-container class="md-block" flex-gt-sm>
-	        <label>Choose a year</label>
-	        <md-select ng-model="yearSelected">
-	          <md-option ng-repeat="year in years" value="{{year}}">
-	            {{year}}
-	          </md-option>
-	        </md-select>
-	    </md-input-container>
-	</div>
-	<div flex="30">
-	    <md-input-container class="md-block" flex-gt-sm>
-	        <label>Choose number of clusters</label>
-	        <md-select ng-model="clusterSelected">
-	          <md-option ng-repeat="cluster in clusters" value="{{cluster}}">
-	            {{cluster}}
-	          </md-option>
-	        </md-select>
-	    </md-input-container>
+	<div flex layout="column">
+		<div>
+		    <md-input-container class="md-block" flex-gt-sm>
+		        <label>Choose a method</label>
+		        <md-select ng-model="methodSelected">
+		          <md-option ng-repeat="method in methods" value="{{method.id}}">
+		            {{method.name}}
+		          </md-option>
+		        </md-select>
+		    </md-input-container>
+		</div>
+		<div>
+		    <md-input-container class="md-block" flex-gt-sm>
+		        <label>Choose a year</label>
+		        <md-select ng-model="yearSelected">
+		          <md-option ng-repeat="year in years" value="{{year}}">
+		            {{year}}
+		          </md-option>
+		        </md-select>
+		    </md-input-container>
+		</div>
+		<div>
+		    <md-input-container class="md-block" flex-gt-sm>
+		        <label>Choose number of clusters</label>
+		        <md-select ng-model="clusterSelected">
+		          <md-option ng-repeat="cluster in clusters" value="{{cluster}}">
+		            {{cluster}}
+		          </md-option>
+		        </md-select>
+		    </md-input-container>
+		</div>
+		<div>
+		    <md-input-container class="md-block" flex-gt-sm>
+		        <label>Choose Layout</label>
+		        <md-select ng-model="layoutSelected">
+		          <md-option ng-repeat="layout in layouts" ng-value="layout.id">
+		            {{layout.name}}
+		          </md-option>
+		        </md-select>
+		    </md-input-container>
+		    {{lay}}
+		</div>
 	</div>
 </div>
-<div layout="column">
-	<network
-	graph="graph"
-	></network>
-
-</div>
+ 

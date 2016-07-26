@@ -1,101 +1,158 @@
+'use strict';
 
 angular.module('app.directives.network', [])
-.directive('network', function() {
+.directive('network', [function() {
 
   // isolate scope
   return {
-    scope: { 
-      'graph': '=',
-    },
     restrict: 'E',
     template: '<div id="network"></div>',
+    scope: {
+      graph: '=',
+      layoutMethod: '='
+    },
     link: link
   };
 
   function link(scope, element) {
-     scope.$watch('graph',function(newVal){
+
+    var color = d3.scaleOrdinal(d3.schemeCategory20)
+    var s;
+    scope.$watch('graph',function(newVal){
       // if(newVal[0]) console.log(newVal)
       if(newVal) draw(newVal);
     });
 
-    var margin = {top: 20, right: 20, bottom: 20, left: 20 },
-            width = 960-margin.left-margin.right,
-            height=600
+    scope.$watch('layoutMethod',function(newVal){
+      if(s!==undefined && newVal) update_layout(newVal)
+    });
 
-    var svg = d3.select("#network").append("svg")
-                .attr("height", height + margin.top + margin.bottom)
-                .attr("width",width + margin.left + margin.right)
-                .append("g")
-                .attr("class","canvas")
-                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+    sigma.classes.graph.addMethod('neighbors', function(nodeId) {
+      var k,
+          neighbors = {},
+          index = this.allNeighborsIndex[nodeId] || {};
+
+      for (k in index)
+        neighbors[k] = this.nodesIndex[k];
+
+      return neighbors;
+    });
     
-    var color = d3.scaleOrdinal(d3.schemeCategory20);
-    
-    var simulation = d3.forceSimulation()
-        .force("link", d3.forceLink().id(function(d) { return d.id; }))
-        .force("charge", d3.forceManyBody())
-        .force("center", d3.forceCenter(width / 2, height / 2));
 
-    function draw(graph){
+    var L=10;
 
-      d3.select(".canvas").selectAll("*").remove();
+    function update_layout(layout){
+      s.killForceAtlas2()
 
-      var link = svg.append("g")
-      .attr("class", "links")
-      .selectAll("line")
-      .data(graph.edges)
-      .enter().append("line")
-        // .attr("stroke-width", function(d) { return Math.sqrt(d.value); });
-
-      var node = svg.append("g")
-          .attr("class", "nodes")
-          .selectAll("circle")
-          .data(graph.nodes)
-          .enter().append("circle")
-          .attr("r", 5)
-          .attr("fill", function(d) { return color(d.community); })
-          .call(d3.drag()
-          .on("start", dragstarted)
-          .on("drag", dragged)
-          .on("end", dragended));
-
-      node.append("title")
-          .text(function(d) { return d.id; });
-
-      simulation
-          .nodes(graph.nodes)
-          .on("tick", ticked);
-
-      simulation.force("link")
-          .links(graph.edges);
-
-      function ticked() {
-        link
-            .attr("x1", function(d) { return d.source.x; })
-            .attr("y1", function(d) { return d.source.y; })
-            .attr("x2", function(d) { return d.target.x; })
-            .attr("y2", function(d) { return d.target.y; });
-            
-        node
-            .attr("cx", function(d) { return d.x; })
-            .attr("cy", function(d) { return d.y; });
+      if(layout==="forceAtlas2") s.startForceAtlas2(LAYOUT_SETTINGS);
+      
+      else if(layout==="frucheterman") {
+         // Configure the Fruchterman-Reingold algorithm:
+        var frListener = sigma.layouts.fruchtermanReingold.configure(s, {
+          iterations: 500,
+          easing: 'quadraticInOut',
+          duration: 800
+        });
+        // Bind the events:
+        frListener.bind('start stop interpolate', function(e) {
+          console.log(e.type);
+        });
+        // Start the Fruchterman-Reingold algorithm:
+        sigma.layouts.fruchtermanReingold.start(s);
       }
-    }//end draw function
-    function dragstarted(d) {
-      if (!d3.event.active) simulation.alphaTarget(0.3).restart();
-      d.fx = d.x;
-      d.fy = d.y;
-    }
+      else if (layout==="circular"){
+        var N=s.graph.nodes().length;
+        s.graph.nodes().forEach(function(n,i) {
+          n.x= L * Math.cos(Math.PI * 2 * i / N - Math.PI / 2)
+          n.y= L * Math.sin(Math.PI * 2 * i / N - Math.PI / 2)
+        });
 
-    function dragged(d) {
-      d.fx = d3.event.x;
-      d.fy = d3.event.y;
+        sigma.plugins.animate(s);
+      }
     }
+    function draw(data){
+      if (s!==undefined) s.kill()
 
-    function dragended(d) {
-      if (!d3.event.active) simulation.alphaTarget(0);
-      d.fx = null;
-      d.fy = null;
+      var N=data.nodes.length;
+      
+      data.nodes.sort(function(a,b){
+        return a.community-b.community
+      })
+      var nodeSize=Math.PI * 2 * L/N
+      data.nodes.forEach(function(d,i){
+        d.size=nodeSize;
+        d.color=color(d.community)
+        d.circular_x=L * Math.cos(Math.PI * 2 * i / N - Math.PI / 2)
+        d.circular_y=L * Math.sin(Math.PI * 2 * i / N - Math.PI / 2)
+        d.x=Math.random(1)
+        d.y=Math.random(1)
+      })
+      s = new sigma({ graph: data, 
+                      container: 'network', 
+                      settings: { 
+                        defaultEdgeColor:"#636363",
+                        edgeColor:"default",
+                        // drawEdges:false,
+                        defaultLabelSize:11, 
+                        // labelSize: "proportional",
+                        // labelSizeRatio: 1,
+                        // labelThreshold: 5,
+                      } 
+                  });
+      update_layout(scope.layoutMethod)
+      // var filter=new sigma.plugins.filter(s);
+      s.graph.nodes().forEach(function(n) {
+        n.originalColor = n.color;
+      });
+      s.graph.edges().forEach(function(e) {
+        e.originalColor = e.color;
+      });
+
+      s.bind('clickNode', function(e) {
+        var nodeId = e.data.node.id,
+            toKeep = s.graph.neighbors(nodeId);
+        toKeep[nodeId] = e.data.node;
+
+        s.graph.nodes().forEach(function(n) {
+          if (toKeep[n.id])
+            n.color = n.originalColor;
+          else
+            n.color = '#eee';
+        });
+
+        s.graph.edges().forEach(function(e) {
+          if ((toKeep[e.source] && e.target===nodeId)||(e.source===nodeId && toKeep[e.target]))
+            e.color = e.originalColor;
+          else
+            e.color = '#eee';
+        });
+        // filter.undo("neighbors")
+        //             .neighborsOf(nodeId,"neighbors")
+        //             .apply();
+        s.refresh();
+      });
+
+      s.bind('clickStage', function(e) {
+        s.graph.nodes().forEach(function(n) {
+          n.color = n.originalColor;
+        });
+
+        s.graph.edges().forEach(function(e) {
+          e.color = e.originalColor;
+        });
+        // filter.undo("neighbors")
+        s.refresh();
+      });
+
+    }
+    var LAYOUT_SETTINGS = {
+        worker: true,
+        barnesHutOptimize: false,
+        strongGravityMode: true,
+        gravity: 0.05,
+        scalingRatio: 10,
+        slowDown: 2
     }
   }
-});
+}]);
