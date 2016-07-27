@@ -27,14 +27,19 @@
 		    </md-input-container>
 		</div>
 		<div>
-		    <md-input-container class="md-block" flex-gt-sm>
+		   <!--  <md-input-container class="md-block" flex-gt-sm>
 		        <label>Choose number of clusters</label>
 		        <md-select ng-model="clusterSelected">
 		          <md-option ng-repeat="cluster in clusters" value="{{cluster}}">
 		            {{cluster}}
 		          </md-option>
 		        </md-select>
-		    </md-input-container>
+		    </md-input-container> -->
+		    <div flex="10" layout layout-align="center center">
+		        <span class="md-body-1">Clusters</span>
+			</div>
+			<md-slider flex md-discrete ng-model="clusterSelected" step="1" min="2" max="10" aria-label="Clusters">
+			</md-slider>
 		</div>
 		<div>
 		    <md-input-container class="md-block" flex-gt-sm>
