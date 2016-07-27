@@ -37,7 +37,7 @@ function ($scope, $location, $http,methodService) {
 
     $scope.layoutSelected=$scope.layouts[0].id;
 
-  	$scope.years=d3.range(1787,2015)
+  	$scope.years=d3.range(1792,2015)
   	$scope.yearSelected=1920
 
   	$scope.clusters=d3.range(2,20)
@@ -50,12 +50,27 @@ function ($scope, $location, $http,methodService) {
         	cluster:newVal[2]
       })
       .then(function (data){
+        console.log(data)
       	$scope.graph=data;
+        $scope.node_num=data.nodes.length;
+        $scope.edge_num=data.edges.length;
   	  })
     })
-    // $scope.changeLayout = function(layout){
-    //   $scope.layoutS=layout;
+    $scope.write_gexf = function(){
+      var myGexf = gexf.create();
+      $scope.graph.nodes.forEach(function(d){
+        myGexf.addNode(d);
+      })
 
-    // }
+      $scope.graph.edges.forEach(function(e){
+        myGexf.addEdge(e);
+      })
+      // As a document
+      var doc = myGexf.document;
+
+      // As a string
+      var string = myGexf.serialize();
+      console.log(string)
+    }
 
 }])
