@@ -16,7 +16,8 @@ angular.module('app.directives.network', [])
 
   function link(scope, element) {
 
-    var color = d3.scaleOrdinal(d3.schemeCategory20)
+    // var color = d3.scaleOrdinal(d3.schemeCategory20)
+    var color = d3.scale.category20()
     var s;
     scope.$watch('graph',function(newVal){
       // if(newVal[0]) console.log(newVal)

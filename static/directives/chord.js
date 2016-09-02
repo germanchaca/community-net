@@ -30,20 +30,29 @@ angular.module('app.directives.network', [])
     
     // var color = d3.scaleOrdinal(d3.schemeCategory20);
     var color =d3.scale.category20()
+    var partition={}
 
-    function valueFormat(x){ return (d3.format(",")(x/1000))+"k";}
+    function valueFormat(x){ 
+      return (d3.format(",")(x/1000))+"k";}
 
 
     function draw(graph){
+      graph.nodes.forEach(function(d){
+        partition[d.id]=d.community
+      })
       d3.select(".canvas").selectAll("*").remove();
       var chi = viz.ch().data(graph.edges).padding(.05)
         .source(d=>d.source)
         .target(d=>d.target)
-        // .sort(sort)
+        .sort(sort)
         .value(d=>d.flow)
-        .fill(function(d){ return color(d.source);});
+        .valueFormat(valueFormat)
+        .fill(function(d){
+          return color(partition[d]);
+       });
       
       chi.defs(svg, 1); 
+      function sort(a,b){ return d3.ascending(partition[a],partition[b]); }
 
       // var che = viz.ch().data(data).padding(.05)
       //               .sort(sort)
@@ -55,8 +64,8 @@ angular.module('app.directives.network', [])
       // che.defs(svg, 2); // create defs for curved labels
 
       // svg.append("g").attr("transform", "translate(230,300)").call(che);
-      // svg.append("g").attr("transform", "translate(700,300)").call(chi);
-      svg.call(chi)
+      svg.append("g").attr("transform", "translate(100,200)").call(chi);
+      // svg.call(chi)
     
       // adjust height of frame in bl.ocks.org
       // d3.select(self.frameElement).style("height", "600px");
