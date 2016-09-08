@@ -5,6 +5,7 @@
 angular.module('app.controller.home', [])
 .controller('home', [ '$scope', '$location', '$http','methodService',
 function ($scope, $location, $http,methodService) {
+
 	$scope.methods=[
 	    {
 	      name:"Hierachical Clustering",
@@ -35,16 +36,20 @@ function ($scope, $location, $http,methodService) {
     ]
     $scope.ranks=[
       {
-        name:"Betweeness",
-        id:"between"
+        name:"Degree",
+        id:"degree"
       },
       {
-        name:"PageRank",
-        id:"pr"
+        name:"Betweeness",
+        id:"betweeness"
       },
       {
         name:"Closeness",
-        id:"close"
+        id:"closeness"
+      },
+      {
+        name:"PageRank",
+        id:"rank"
       }
     ]
   	$scope.methodSelected=$scope.methods[2].id;
@@ -67,6 +72,13 @@ function ($scope, $location, $http,methodService) {
       .then(function (data){
         var s = new sigma({ graph: data})
         $scope.maxDegree=0;
+        // $scope.centrality=data.centrality;
+        $scope.partitionMap=data.worldmap;
+
+        $scope.ranks[0]["data"]=data.centrality.degree;
+        $scope.ranks[1]["data"]=data.centrality.betweeness;
+        $scope.ranks[2]["data"]=data.centrality.closeness;
+        $scope.ranks[3]["data"]=data.centrality.rank;
 
         s.graph.nodes().forEach(function(n) {
           $scope.maxDegree=Math.max($scope.maxDegree,s.graph.degree(n.id))
@@ -78,6 +90,12 @@ function ($scope, $location, $http,methodService) {
         $scope.partition=d3.set(data.nodes.map(function(d){return d.community})).values().length
   	  })
     })
+
+    $scope.active="md-primary";
+    $scope.toggle=function(){
+      $scope.active =$scope.active==="md-accent" ? "md-primary":"md-accent";
+    }
+
     $scope.write_gexf = function(){
       var myGexf = gexf.create();
       $scope.graph.nodes.forEach(function(d){

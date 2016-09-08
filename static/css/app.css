@@ -1,3 +1,7 @@
+body{
+  background: "lightgrey" !important
+}
+
 .links line {
   stroke: #999;
   stroke-opacity: 0.6;
@@ -16,4 +20,72 @@
 svg text{
   text-anchor:middle;
   font-size:10px;
+}
+
+.bar {
+  fill: #bbb;
+  shape-rendering: crispEdges;
+}
+
+path {
+        fill: #fff;
+        stroke: #000;
+        stroke-width:0.5px;
+      } 
+
+/*bundle*/
+
+.link {
+  stroke: grey;
+  stroke-opacity: .4;
+  fill: none;
+  pointer-events: none;
+}
+
+.node:hover,
+.node--source,
+.node--target {
+  font-weight: 700;
+}
+
+.node--source {
+  fill: #2ca02c;
+}
+
+.node--target {
+  fill: #d62728;
+}
+
+.link--source,
+.link--target {
+  stroke-opacity: 1;
+  stroke-width: 2px;
+}
+
+.link--source {
+  stroke: #d62728;
+}
+
+.link--target {
+  stroke: #2ca02c;
+}
+
+/*convex*/
+circle.node {
+  fill: lightsteelblue;
+  stroke: #555;
+  stroke-width: 3px;
+}
+circle.leaf {
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
+path.hull {
+  fill: lightsteelblue;
+  fill-opacity: 0.3;
+}
+line.link {
+  stroke: #333;
+  stroke-opacity: 0.5;
+  pointer-events: none;
 }
